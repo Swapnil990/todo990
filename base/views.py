@@ -71,6 +71,8 @@ class TaskDetail(LoginRequiredMixin,DetailView):
     context_object_name = 'task'
     template_name = 'base/task.html'
     
+
+
 class TaskCreate(LoginRequiredMixin,CreateView):
     model = Task
     fields = ['title','description','complete']
@@ -79,6 +81,8 @@ class TaskCreate(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate,self).form_valid(form)
+
+        
 
 class TaskUpdate(LoginRequiredMixin,UpdateView):
     model = Task
